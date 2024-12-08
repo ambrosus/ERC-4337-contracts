@@ -14,24 +14,24 @@ contract DeployScript is DeploymentsManager {
     vm.startBroadcast(deployerPrivateKey);
 
     // Deploy EntryPoint
-    uint256 initialSupply = 5000000 * 10 ** 18;
+//    uint256 initialSupply = 5000000 * 10 ** 18;
     IEntryPoint entryPoint = new EntryPoint();
     console.log("EntryPoint deployed to:", address(entryPoint));
 
-    // Deploy
-    address underlyingTokenAddress = vm.envAddress("UNDERLYING_TOKEN_ADDRESS");
-    uint48 leverageFactor = 200_000;
-    OrbitLend orbitLend = new OrbitLend(IERC20Metadata(underlyingTokenAddress), orbitOracle, leverageFactor);
-    console.log("OrbitLend deployed to:", address(orbitLend));
-
-    // Set the Oracle in OrbitLend
-    orbitLend.setOracle(orbitOracle);
-    console.log("Oracle set in OrbitLend");
-
-    // Set the backend address in OrbitOracle
-    address backendAddress = vm.envAddress("BACKEND_ADDRESS");
-    orbitOracle.setBackendAddress(backendAddress);
-    console.log("Backend address set in OrbitOracle");
+//    // Deploy
+//    address underlyingTokenAddress = vm.envAddress("UNDERLYING_TOKEN_ADDRESS");
+//    uint48 leverageFactor = 200_000;
+//    OrbitLend orbitLend = new OrbitLend(IERC20Metadata(underlyingTokenAddress), orbitOracle, leverageFactor);
+//    console.log("OrbitLend deployed to:", address(orbitLend));
+//
+//    // Set the Oracle in OrbitLend
+//    orbitLend.setOracle(orbitOracle);
+//    console.log("Oracle set in OrbitLend");
+//
+//    // Set the backend address in OrbitOracle
+//    address backendAddress = vm.envAddress("BACKEND_ADDRESS");
+//    orbitOracle.setBackendAddress(backendAddress);
+//    console.log("Backend address set in OrbitOracle");
 
     vm.stopBroadcast();
 
@@ -40,6 +40,6 @@ contract DeployScript is DeploymentsManager {
      * These definitions are used to derive the types needed in the custom scaffold-eth hooks, for example.
      * This function should be called last.
      */
-    exportDeployments();
+//    exportDeployments();
   }
 }
