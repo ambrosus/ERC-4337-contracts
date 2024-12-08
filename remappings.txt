@@ -1,0 +1,2 @@
+@openzeppelin/contracts/=lib/@openzeppelin-contracts-4.9.0/
+forge-std/=lib/forge-std-1.9.2/src/
