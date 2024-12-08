@@ -7,3 +7,6 @@
 [submodule "dependencies/openzeppelin-foundry-upgrades"]
 	path = dependencies/openzeppelin-foundry-upgrades
 	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
+[submodule "dependencies/solidity-bytes-utils"]
+	path = dependencies/solidity-bytes-utils
+	url = https://github.com/GNSPS/solidity-bytes-utils
