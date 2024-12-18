@@ -2,19 +2,20 @@
 pragma solidity ^0.8.17;
 
 import "../interfaces/IEntryPoint.sol";
-import "../core/EntryPoint.sol";
+import "../samples/SimpleAccountFactory.sol";
 import "../utils/DeploymentsManager.s.sol";
 
 contract DeployScript is DeploymentsManager {
 
   function run() external {
     uint256 deployerPrivateKey = vm.envUint("DEPLOYER_PRIVATE_KEY");
+    address entryPointAddress = vm.envAddress("ENTRY_POINT_ADDRESS");
     initDeployments();
     vm.startBroadcast(deployerPrivateKey);
 
-    // Deploy EntryPoint
-    IEntryPoint entryPoint = new EntryPoint();
-    console.log("EntryPoint deployed to:", address(entryPoint));
+    // Deploy SimpleAccountFactory
+    SimpleAccountFactory simpleAccountFactory = new SimpleAccountFactory(IEntryPoint(entryPointAddress));
+    console.log("SimpleAccountFactory deployed to:", address(simpleAccountFactory));
 
     vm.stopBroadcast();
 
